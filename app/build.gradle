@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.wisdom.gradleconfigdemo"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //配置buildConfig的字段
+        buildConfigField "String", "CUSTOMERNAME", "\"\""
+        buildConfigField "boolean", "CUSTOMERBOOLEAN", "false"
+        buildConfigField "String", "PROVIDER_AUTHOR", "\"com.sen5.iptv.provider\""
+
+        //这里可以动态配置ContentProvider
+        manifestPlaceholders = [provider_author: "com.sen5.iptv.provider"]
+
+        //androidStudio 3.0后需要配置flavorDimensions
+        flavorDimensions "debug"
+    }
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                proguardFile 'proguard-rules.pro'
+            }
+        }
+    }
+
+    productFlavors {
+
+        app {
+            //不配置任何东西表示使用默认的
+            dimension "debug"
+        }
+        oneApp {
+            dimension "debug" //配置维度
+            applicationId "com.wisdom.gradleconfigdemo"//这里可以指定需要的applicationId
+            buildConfigField "String", "CUSTOMERNAME", "\"_oneapp\""
+        }
+
+        twoApp {
+            dimension "debug"
+            //指定你的APP需要那种provider
+            buildConfigField "String", "PROVIDER_AUTHOR", "\"com.wisdom.test.provider\""
+            manifestPlaceholders = [provider_author: "com.wisdom.test.provider"]
+            applicationId "com.wisdom.twoapp"
+            buildConfigField "String", "CUSTOMERNAME", "\"_twoapp\""
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compile('com.thoughtworks.xstream:xstream:1.4.7') {
+        exclude group: 'xmlpull', module: 'xmlpull'
+    }
+    implementation files('libs/fastjson-1.1.52.android.jar')
+}
