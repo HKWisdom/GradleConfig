@@ -3,7 +3,7 @@ package com.wisdom.gradleconfigdemo.readassets.utils;
 import android.content.Context;
 
 import com.alibaba.fastjson.JSON;
-import com.wisdom.gradleconfigdemo.LogUtil;
+import com.wisdom.gradleconfigdemo.utils.LogUtil;
 import com.wisdom.gradleconfigdemo.readassets.entity.ServerConfigEntity;
 
 import java.io.ByteArrayOutputStream;

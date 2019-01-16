@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.wisdom.gradleconfigdemo"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -67,4 +67,14 @@ dependencies {
         exclude group: 'xmlpull', module: 'xmlpull'
     }
     implementation files('libs/fastjson-1.1.52.android.jar')
+
+    //retrofit和rxjava
+    implementation 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    implementation 'io.reactivex:rxjava:1.0.1'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+
+    implementation 'com.android.support:leanback-v17:26.1.0'
 }

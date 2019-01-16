@@ -1,6 +1,6 @@
 package com.wisdom.gradleconfigdemo.readassets;
 
-import com.wisdom.gradleconfigdemo.LogUtil;
+import com.wisdom.gradleconfigdemo.utils.LogUtil;
 import com.wisdom.gradleconfigdemo.readassets.entity.ServerCountConfigEntity;
 
 import java.util.List;

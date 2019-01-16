@@ -3,17 +3,10 @@
  *classes : com.com.eric.xlee.log
  * Xlee Create at 17 Nov 2015 14:14:54
  */
-package com.wisdom.gradleconfigdemo;
+package com.wisdom.gradleconfigdemo.utils;
 
 import android.text.TextUtils;
 import android.util.Log;
-
-/**
- * com.com.eric.xlee.log
- * 
- * @author Xlee <br/>
- *         create at 17 Nov 2015 14:14:54
- */
 
 public class LogUtil {
     private static boolean sIsDebug = true;

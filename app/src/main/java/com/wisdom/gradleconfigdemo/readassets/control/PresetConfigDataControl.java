@@ -3,7 +3,7 @@ package com.wisdom.gradleconfigdemo.readassets.control;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.wisdom.gradleconfigdemo.LogUtil;
+import com.wisdom.gradleconfigdemo.utils.LogUtil;
 import com.wisdom.gradleconfigdemo.readassets.DataManager;
 import com.wisdom.gradleconfigdemo.readassets.entity.GlobalConfigEntity;
 import com.wisdom.gradleconfigdemo.readassets.entity.ServerCountConfigEntity;

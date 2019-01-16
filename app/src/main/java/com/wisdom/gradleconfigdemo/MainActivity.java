@@ -1,16 +1,29 @@
 package com.wisdom.gradleconfigdemo;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import com.wisdom.gradleconfigdemo.base.BaseActivity;
+import com.wisdom.gradleconfigdemo.mvp.model.MovieModel;
+import com.wisdom.gradleconfigdemo.mvp.presenter.MoviePresenter;
+import com.wisdom.gradleconfigdemo.mvp.view.IView;
 
-import com.wisdom.gradleconfigdemo.readassets.control.LoadConfigData;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity<MoviePresenter,MovieModel> implements IView {
+    @Override
+    protected int getResId() {
+        return R.layout.activity_main;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        LoadConfigData.load(this);
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initPresenter() {
+        mPresenter.setVM(mModel,this);
+    }
+
+
+    @Override
+    public void load() {
+
     }
 }
